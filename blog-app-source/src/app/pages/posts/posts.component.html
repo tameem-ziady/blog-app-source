@@ -1,0 +1,68 @@
+<div class="page">
+  <h1 class="page-title">Blog Posts</h1>
+  <p class="page-subtitle">
+    Showing <strong>{{ totalFilteredCount() }}</strong> of
+    {{ blogService.totalPosts() }} posts
+  </p>
+
+  <div class="toolbar">
+    <input
+      type="text"
+      placeholder="Search posts by title…"
+      class="search-input"
+      [value]="searchTerm()"
+      (input)="onSearchChange($any($event.target).value)"
+    />
+
+    <select
+      class="user-select"
+      [value]="selectedUserId() ?? ''"
+      (change)="onUserFilterChange($any($event.target).value)"
+    >
+      <option value="">All authors</option>
+      @for (user of users(); track user.id) {
+        <option [value]="user.id">{{ user.name }}</option>
+      }
+    </select>
+
+    <button class="btn btn-secondary" (click)="loadPosts()">↻ Reload</button>
+    <a routerLink="/posts/add" class="btn btn-primary">+ Add Post</a>
+  </div>
+
+  @if (loading()) {
+    <div class="spinner"></div>
+  } @else if (totalFilteredCount() === 0) {
+    <div class="empty-state">
+      <p>😕 No Posts Found</p>
+      @if (blogService.totalPosts() > 0) {
+        <p class="empty-hint">Try adjusting your search or filter.</p>
+      }
+    </div>
+  } @else {
+    <div class="post-grid loaded">
+      @for (post of filteredPosts(); track post.id) {
+        <a [routerLink]="['/posts', post.id]" class="post-card">
+          <div class="post-card-head">
+            <h3>{{ post.title }}</h3>
+            @if (isLongPost(post)) {
+              <span class="badge badge-long">Long read</span>
+            } @else {
+              <span class="badge badge-short">Quick read</span>
+            }
+          </div>
+          <p class="post-body">{{ shortBody(post.body) }}</p>
+          <div class="post-card-footer">
+            @if (userName(post.userId); as name) {
+              <span class="post-author">by {{ name }}</span>
+            } @else {
+              <span class="post-author">by user #{{ post.userId }}</span>
+            }
+            <button class="btn btn-danger btn-sm" (click)="onDelete(post.id, $event)">
+              Delete
+            </button>
+          </div>
+        </a>
+      }
+    </div>
+  }
+</div>

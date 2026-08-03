@@ -1,0 +1,49 @@
+<div class="page">
+  <a routerLink="/posts" class="back-link">&larr; Back to Posts</a>
+
+  @if (notFound()) {
+    <div class="empty-state">
+      <p>This post doesn't exist (or was deleted locally).</p>
+      <a routerLink="/posts" class="btn btn-primary">Go to Posts</a>
+    </div>
+  } @else if (selectedPost(); as post) {
+    <article class="post-detail">
+      <h1>{{ post.title }}</h1>
+
+      @if (author(); as user) {
+        <div class="author-line">
+          <span class="author-avatar">{{ user.name.charAt(0) }}</span>
+          <div>
+            <p class="author-name">{{ user.name }}</p>
+            <p class="author-email">{{ user.email }}</p>
+          </div>
+        </div>
+      } @else {
+        <p class="author-line-fallback">by user #{{ post.userId }}</p>
+      }
+
+      <p class="post-detail-body">{{ post.body }}</p>
+    </article>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      @if (commentsLoading()) {
+        <div class="spinner"></div>
+      } @else if (comments().length === 0) {
+        <p class="no-comments">No comments on this post yet.</p>
+      } @else {
+        <ul class="comments-list">
+          @for (comment of comments(); track comment.id) {
+            <li class="comment-item">
+              <p class="comment-name">{{ comment.name }}</p>
+              <p class="comment-email">{{ comment.email }}</p>
+              <p class="comment-body">{{ comment.body }}</p>
+            </li>
+          }
+        </ul>
+      }
+    </section>
+  } @else {
+    <div class="spinner"></div>
+  }
+</div>

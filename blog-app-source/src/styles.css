@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f6fa;
+  color: #202225;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: #3854d1;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #2c41ad;
+}
+.btn-primary:disabled {
+  background: #a5adcf;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  background: #e0413a;
+  color: #fff;
+}
+.btn-danger:hover {
+  background: #b93129;
+}
+
+.btn-secondary {
+  background: #e7e9f2;
+  color: #333;
+}
+.btn-secondary:hover {
+  background: #d6d9ea;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.page-subtitle {
+  color: #666;
+  margin-bottom: 1.75rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #777;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px dashed #ccc;
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border: 4px solid #e0e3ef;
+  border-top-color: #3854d1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge-long {
+  background: #fff1cf;
+  color: #92620a;
+}
+
+.badge-short {
+  background: #e4f3ea;
+  color: #1e7a44;
+}

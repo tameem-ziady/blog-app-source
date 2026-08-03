@@ -1,0 +1,21 @@
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Welcome to BlogApp</h1>
+    <p>
+      A demo blog built with Angular Standalone Components, Signals, and the
+      JSONPlaceholder API.
+    </p>
+
+    <div class="stats">
+      <div class="stat-card">
+        <span class="stat-number">{{ blogService.totalPosts() }}</span>
+        <span class="stat-label">Posts loaded</span>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a routerLink="/posts" class="btn btn-primary">Browse Posts</a>
+      <a routerLink="/posts/add" class="btn btn-secondary">Write a Post</a>
+    </div>
+  </div>
+</section>

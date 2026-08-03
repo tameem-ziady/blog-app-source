@@ -1,0 +1,21 @@
+<div class="app-shell">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a routerLink="/" class="brand">📝 BlogApp</a>
+      <nav class="nav-links">
+        <a routerLink="/" [class.active]="isActive('/')">Home</a>
+        <a routerLink="/posts" [class.active]="isActive('/posts')">Posts</a>
+        <a routerLink="/posts/add" [class.active]="isActive('/posts/add')">Add Post</a>
+        <a routerLink="/about" [class.active]="isActive('/about')">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <router-outlet />
+  </main>
+
+  <footer class="footer">
+    <p>Built with Angular Standalone Components &middot; Data from JSONPlaceholder</p>
+  </footer>
+</div>

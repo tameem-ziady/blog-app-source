@@ -1,0 +1,103 @@
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.search-input,
+.user-select {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #d7d9e4;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  background: #fff;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Requirement 9: style cards on completion of loading */
+.post-grid.loaded {
+  animation: fadeInUp 0.35s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.1rem;
+  border: 1px solid #eaebf2;
+  box-shadow: 0 1px 3px rgba(20, 20, 43, 0.04);
+  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 6px 16px rgba(20, 20, 43, 0.09);
+  transform: translateY(-2px);
+  border-color: #cfd3ea;
+}
+
+.post-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-card-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  text-transform: capitalize;
+  line-height: 1.35;
+}
+
+.post-body {
+  color: #666;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-bottom: 0.9rem;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f0f1f6;
+  padding-top: 0.7rem;
+}
+
+.post-author {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+}
+
+.empty-hint {
+  color: #aaa;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}

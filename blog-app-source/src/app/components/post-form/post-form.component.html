@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="post-form">
+  <div class="field">
+    <label for="title">Title</label>
+    <input
+      id="title"
+      type="text"
+      formControlName="title"
+      placeholder="A catchy title…"
+      [class.invalid]="titleControl.invalid && titleControl.touched"
+    />
+    @if (titleControl.invalid && titleControl.touched) {
+      <p class="error-text">
+        @if (titleControl.hasError('required')) {
+          Title is required.
+        } @else if (titleControl.hasError('minlength')) {
+          Title must be at least 5 characters.
+        }
+      </p>
+    }
+  </div>
+
+  <div class="field">
+    <label for="body">Body</label>
+    <textarea
+      id="body"
+      formControlName="body"
+      rows="5"
+      placeholder="Write your post here…"
+      [class.invalid]="bodyControl.invalid && bodyControl.touched"
+    ></textarea>
+    @if (bodyControl.invalid && bodyControl.touched) {
+      <p class="error-text">
+        @if (bodyControl.hasError('required')) {
+          Body is required.
+        } @else if (bodyControl.hasError('minlength')) {
+          Body must be at least 20 characters.
+        }
+      </p>
+    }
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+    Publish Post
+  </button>
+</form>

@@ -1,0 +1,14 @@
+<div class="page page-narrow">
+  <h1 class="page-title">Add a New Post</h1>
+  <p class="page-subtitle">
+    Posts are added locally (JSONPlaceholder doesn't persist writes).
+  </p>
+
+  @if (justAddedTitle(); as title) {
+    <div class="success-banner">
+      ✅ "{{ title }}" published! Redirecting to your post…
+    </div>
+  }
+
+  <app-post-form (postAdded)="onPostAdded($event)" />
+</div>

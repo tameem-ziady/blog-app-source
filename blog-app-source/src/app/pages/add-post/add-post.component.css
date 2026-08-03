@@ -1,0 +1,13 @@
+.page-narrow {
+  max-width: 640px;
+}
+
+.success-banner {
+  background: #e4f3ea;
+  color: #1e7a44;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}

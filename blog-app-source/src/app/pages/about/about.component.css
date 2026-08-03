@@ -1,0 +1,19 @@
+.page-narrow {
+  max-width: 640px;
+}
+
+.about-card {
+  background: #fff;
+  border: 1px solid #eaebf2;
+  border-radius: 12px;
+  padding: 1.5rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+code {
+  background: #f0f1f6;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
